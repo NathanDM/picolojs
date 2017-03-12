@@ -2,7 +2,7 @@ var http = require('http');
 var fs = require('fs');
 
 var server = http.createServer((req, res) => {
-    fs.readFile('./front/index.html', 'utf-8', (error, content) => {
+    fs.readFile('./front/src/index.html', 'utf-8', (error, content) => {
         res.writeHead(200, {"Content-Type": "text/html"});
         res.end(content);
     });
@@ -21,7 +21,7 @@ io.sockets.on('connection', function (socket) {
     // Quand le serveur reçoit un signal de type "message" du client
     socket.on('join', function (userName) {
         nbUser++;
-
+        console.log(userName);
         const user = {
             id: nbUser,
             name: userName,
