@@ -7,13 +7,42 @@
 
 <body>
 <h1>Communication avec socket.io !</h1>
-
+<input id="userName" type="text"/>
+<button id="join">join</button>
+<div id="users" style="background: black; color:white"></div>
 <script src="/socket.io/socket.io.js"></script>
 <script>
     var socket = io.connect('http://localhost:8080');
     socket.on('message', function (message) {
-        alert('Le serveur a un message pour vous : ' + message);
-    })
+        console.info('Le serveur a un message pour vous : ' + message);
+    });
+
+    document.getElementById('join').addEventListener('click', () => {
+        const userName = document.getElementById('userName').value;
+
+        socket.emit('join', userName);
+    });
+
+    const users = [];
+    let usersListElement = document.getElementById('users');
+
+    function buildUserElement(user) {
+        let userElement = document.createElement('div');
+        userElement.innerHTML = `${user.id} : ${user.name}`;
+        return userElement;
+    }
+
+    socket.on('connection-success', function (usersData) {
+        for (let i = 0; i < usersData.length; i++) {
+            usersListElement.appendChild(buildUserElement(usersData[i]));
+        }
+        users.push(usersData);
+    });
+
+    socket.on('user-join', (user) => {
+        usersListElement.appendChild(buildUserElement(user));
+    });
+
 </script>
 </body>
 </html>
