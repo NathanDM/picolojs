@@ -5,16 +5,35 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import {MaterialModule} from "@angular/material";
+import {Routes, RouterModule} from "@angular/router";
+import { ClientComponent } from './client/client.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {MenuComponent} from "./menu/menu.component";
+import 'hammerjs';
+import { HomeComponent } from './home/home.component';
+
+
+const routes: Routes = [
+  {path: 'home', component: HomeComponent},
+  {path: 'client', component: ClientComponent},
+  {path: 'dashboard', component: DashboardComponent},
+  {path: '**', redirectTo: 'home'}
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ClientComponent,
+    DashboardComponent,
+    MenuComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

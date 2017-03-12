@@ -1,0 +1,25 @@
+<!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">-->
+  <!--<div class="container">-->
+    <!--<div class="navbar-header">-->
+      <!--<a class="navbar-brand" [routerLink]="['client']">PicoloJS</a>-->
+    <!--</div>-->
+    <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+      <!--<ul class="nav navbar-nav">-->
+        <!--<li [routerLinkActive]="'kiabi'">-->
+          <!--<a [routerLink]="['client']">Client</a>-->
+        <!--</li>-->
+        <!--<li [routerLinkActive]="'kiabi'">-->
+          <!--<a [routerLink]="['dashboard']">Dashboard</a>-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</nav>-->
+<md-toolbar>
+<span><a [routerLink]="['home']">PicoloJS</a></span>
+
+  <span class="example-spacer"></span>
+
+  <a [routerLink]="['client']">Client</a>
+  <a [routerLink]="['dashboard']">Dashboard</a>
+</md-toolbar>
