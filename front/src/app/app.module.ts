@@ -12,6 +12,7 @@ import {MenuComponent} from "./menu/menu.component";
 import 'hammerjs';
 import {HomeComponent} from './home/home.component';
 import {DashboardService} from "./dashboard/dashboard.service";
+import {ConnectionService} from "./services/connection.service";
 
 
 const routes: Routes = [
@@ -36,7 +37,7 @@ const routes: Routes = [
     MaterialModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [DashboardService],
+  providers: [ConnectionService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -2,5 +2,6 @@
   home works!
 </p>
 
-<input type="text" ngModel="toto">
-<button (click)="connect(toto)">Connect</button>
+<input type="text" [(ngModel)]="user.name">
+<button (click)="connect()">Connect</button>
+<div *ngFor="let m of message">{{ m.name }}</div>

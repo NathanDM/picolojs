@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../models/user";
+import {DashboardService} from "../dashboard/dashboard.service";
+import {ConnectionService} from "../services/connection.service";
 
 @Component({
   selector: 'app-home',
@@ -8,15 +10,18 @@ import {User} from "../models/user";
 })
 export class HomeComponent {
 
-  user: User;
-  toto: string = '';
+  message;
+  user: User = new User(0, '');
 
-  constructor() {
+  constructor(private connectionService: ConnectionService) {
+    this.connectionService.getMessages().subscribe(message => {
+      this.message = message;
+      console.log(this.message);
+    });
   }
 
-  connect(username): void {
-    this.user.username = username;
-    alert(this.user.username);
+  connect(): void {
+    this.connectionService.join(this.user.name);
   }
 
 }
