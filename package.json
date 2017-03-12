@@ -1,0 +1,23 @@
+{
+  "name": "picolojs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathanDM/picolojs.git"
+  },
+  "keywords": [
+    "socket.io",
+    "game"
+  ],
+  "author": "ndamie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NathanDM/picolojs/issues"
+  },
+  "homepage": "https://github.com/NathanDM/picolojs#readme"
+}
